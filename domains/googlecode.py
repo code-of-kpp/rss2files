@@ -11,7 +11,7 @@ class GoogleCode(UsualDomain):
 	@staticmethod
 	def form_url(params):
 		known = frozenset(('!googlecode', '!code.google.com'))
-		if params[0] not in known:
+		if params[0].lower() not in known:
 			return None
 		if len(params) < 2:
 			return None

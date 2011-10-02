@@ -8,7 +8,19 @@ class SourceForge(UsualDomain):
 
 	@staticmethod
 	def form_url(params):
-		return None
+		known = frozenset(('!sourceforge', '!sf.net',
+							'!sourceforge.net'))
+		if params[0].lower() not in known:
+			return None
+		if len(params) < 2:
+			return None
+		url = ''.join(['http://sourceforge.net/api/file/index/',
+			'project-name/', params[1], '/mtime/desc/'])
+		if len(params) >= 3 and int(params[2]):
+			url = ''.join([url, 'limit/', params[2], '/'])
+		url = ''.join([url, 'rss'])
+		
+		return url
 
 	@staticmethod
 	def title(feed):
