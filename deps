@@ -1,1 +1,4 @@
+python >= 2.5 <= 3 | jython >= 2.5.1
+python-feedparser | FeedParser | feedparser
 python-yaml | PyYAML
+python-argparse | argparse

@@ -29,7 +29,7 @@ def download	(url,
 	if FileName is None:
 		FileName = ''
 	localName = ''
-	
+
 	# maybe there is nothing we should do:
 	if FileName:
 		if skip(FileName):
@@ -44,7 +44,7 @@ def download	(url,
 			return None
 
 	r = None
-	
+
 	# ok, we have to ask server...
 	try:
 		r = urllib2.urlopen(url)
@@ -61,12 +61,12 @@ def download	(url,
 		# if we were redirected, the real file name we take from the final URL
 		localName = url2name(r.url)
 	localName = urllib2.unquote(localName).decode('utf8')
-	
+
 	# Trying to catch html-redirections and folder links
 	if len(localName) == 0 and  r.info().has_key('Content-Type') \
 		and r.info()['Content-Type'].startswith('text/html;'):
 		return None
-	
+
 	if FileName: 
 		# we can force to save the file as specified name
 		localName = FileName

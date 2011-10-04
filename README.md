@@ -1,6 +1,6 @@
-# Saving files from feeds
+# Saving files mentioned in feeds
 
-The main goal of `rss2files` is to help you in downloading latest
+The main goal of `rss2files` is to help you with downloading latest
 versions of files (binaries) stored on code.google.com and sf.net.
 Should be helpfull in creating off-line file mirrors for specific set
 of projects.
@@ -47,7 +47,7 @@ First is passing `--exclude` argument to `rss2files`:
 
 	rss2files http://mysite/my_feed --exclude *.rpm *.deb
 
-Last line will force `rss2files` to ignore iny files matching `*.rpm` or
+Last line will force `rss2files` to ignore any files matching `*.rpm` or
 `*.deb` globs.
 
 Second is based on using exclude-list file. This is simple text file
@@ -63,7 +63,7 @@ avoid_this_files:
 	*.sys
 	*.scr
 
-## Listing of downloaded files to html
+## HTML listing of downloaded files
 HTML files containing links to every downloaded file will be created for
 every URL in URLs list as well as main index.html file for all
 projects/podcasts mirrored.
