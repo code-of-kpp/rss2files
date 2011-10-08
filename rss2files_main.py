@@ -28,8 +28,8 @@ def construct_yaml_str(self, node):
 yaml.Loader.add_constructor(u'tag:yaml.org,2002:str', construct_yaml_str)
 yaml.SafeLoader.add_constructor(u'tag:yaml.org,2002:str', construct_yaml_str)
 
-from domains import domains
-from download import download
+from rss2files.domains import domains
+from rss2files.download import download
 
 def appdata_path():
 	APPNAME = 'rss2files'
@@ -181,7 +181,7 @@ def handle_url(url):
 def get_urls(parsed_args):
 	file_name = None
 	if parsed_args.urls is None:
-		file_name = os.path.join(parsed_args.appdata, 'rss2files.list')
+		file_name = os.path.join(parsed_args.appdir, 'rss2files.list')
 	else:
 		file_name = parsed_args.urls
 
